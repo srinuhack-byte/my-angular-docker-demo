@@ -9,11 +9,11 @@ env:
 phases:
   pre_build:
     commands:
-      - echo ${DOCKERHUB_TOKEN} | docker login -u ${DOCKERHUB_USER} --password-stdin 
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 720664564772.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
-      - docker build -t my-angular-app:latest .
+      - docker build -t angular-image-repo:latest .
   post_build:
     commands:
-      - docker tag my-angular-app:latest ${DOCKERHUB_USER}/my-angular-app:latest
-      - docker push ${DOCKERHUB_USER}/my-angular-app:latest
+      - docker tag angular-image-repo:latest 720664564772.dkr.ecr.ap-south-1.amazonaws.com/angular-image-repo:latest
+      - docker push 720664564772.dkr.ecr.ap-south-1.amazonaws.com/angular-image-repo:latest
