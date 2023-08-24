@@ -1,4 +1,11 @@
 version: 0.2
+env:
+  variables:
+    name: value
+  parameter-store:
+    DOCKERHUB_TOKEN: /docker/token
+  secrets-manager:
+    DOCKERHUB_USER: dockersecret:user
 phases:
   pre_build:
     commands:
