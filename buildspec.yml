@@ -17,3 +17,10 @@ phases:
     commands:
       - docker tag angular-image-repo:latest 720664564772.dkr.ecr.ap-south-1.amazonaws.com/angular-image-repo:latest
       - docker push 720664564772.dkr.ecr.ap-south-1.amazonaws.com/angular-image-repo:latest
+
+      # Generate image definitions file for ECS
+      - printf '[{"name":"angularimage","imageUri":"720664564772.dkr.ecr.ap-south-1.amazonaws.com/angular-image-repo:latest"}]' > imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json      
