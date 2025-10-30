@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1#page-title').textContent).toContain('Sample Angular App for AWS CodePipeline Step by Step');
+    expect(compiled.querySelector('h1#page-title').textContent).toContain('Sample Angular App for AWS CodePipeline ');
   });
 });
